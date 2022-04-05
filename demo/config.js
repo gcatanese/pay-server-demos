@@ -32,10 +32,10 @@ function configOrEnvVars(config, path) {
         .toUpperCase();
     const type = typeof config[k];
     config[k] = type === 'object' ? configOrEnvVars(config[k], thisPath) : config[k] || process.env[thisPath];
-    
-    if(config[k] === undefined) {
+
+    if (config[k] === undefined) {
       // variable not define in config.json or as ENV variable
-      throw new Error(k + " is NOT set");
+      throw new Error(k + ' is NOT set');
     }
     if (typeof config[k] != type) {
       config[k] = JSON.parse(config[k]);
@@ -48,12 +48,12 @@ var config = undefined;
 
 // check config.json
 const configPath = path.resolve(__dirname, 'config.json');
-if(fs.existsSync(configPath)) {
+if (fs.existsSync(configPath)) {
   config = JSON.parse(stripJsonComments(fs.readFileSync(configPath, 'utf8')));
 } else {
   // fallback to config-test.json
   const configTestPath = path.resolve(__dirname, 'config-test.json');
-  config = JSON.parse(stripJsonComments(fs.readFileSync(configTestPath, 'utf8')));  
+  config = JSON.parse(stripJsonComments(fs.readFileSync(configTestPath, 'utf8')));
 }
 
 module.exports = configOrEnvVars(config);
