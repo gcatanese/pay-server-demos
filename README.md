@@ -52,7 +52,7 @@ For example when using Adyen the file would look like:
 
 **Step Three:** Start the Gitpod workspace.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gcatanese/pay-server-demos/tree/gitpod-workspace)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gcatanese/pay-server-demos/)
 
 ## Client Library
 
