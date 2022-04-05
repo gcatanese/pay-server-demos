@@ -19,6 +19,41 @@ PSP.
 - Run the app: `node demo/app.js`
 - View at `http://localhost:3000`
 
+## Deploy Demo App on Gitpod
+
+The demo app can be run on Gitpod: this requires configuring the PSP credentials (Adyen is used in the example below,
+but same approach is valid for other PSPs).
+
+**Step One:** Define the credentials of the PSP as [gitpod account variables](https://gitpod.io/variables).
+
+For example when using Adyen you would configure the following:
+
+![Alt text](gitpod-variables.png?raw=true 'Gitpod account variables')
+
+**Step Two:** [Fork](https://github.com/google-pay/pay-server-demos/fork) the repository and create the
+`config-test.json` file without the actual values (just as placeholder - the env variables will be used instead), then
+push.
+
+For example when using Adyen the file would look like:
+
+```
+{
+    "adyen": {
+      "environment": "",
+      "apiKey": "",
+      "merchantAccount": "",
+      "clientConfig": {
+        "gateway": "",
+        "gatewayMerchantId": ""
+      }
+    }
+  }
+```
+
+**Step Three:** Start the Gitpod workspace.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gcatanese/pay-server-demos/tree/gitpod-workspace)
+
 ## Client Library
 
 The `google-pay-psp-client` directory contains a client library that wraps each of the PSP server-side integrations.
